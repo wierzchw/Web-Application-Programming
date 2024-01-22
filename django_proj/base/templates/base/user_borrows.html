@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<header>
+    <h2>Moje Wypożyczenia</h2>
+</header>
+
+<div>
+    <p>Witaj, {{ user.username }}! Poniżej znajdziesz listę wypożyczonych książek:</p>
+
+    {% for borrow in borrows %}
+        <div>
+            <h3>{{ borrow.book.title }}</h3>
+            <p>Data zwrotu: {{ borrow.endDate|date:"d.m.Y" }}</p>
+            <form method="POST" action="{% url 'extend-borrow' borrow.id %}">
+                {% csrf_token %}
+                <input type="submit" value="Przedłuż o 14 dni">
+            </form>
+        </div>
+    {% endfor %}
+</div>
+<div>
+    <h2>Informacje o koncie użytkownika</h2>
+    <p>Nazwa użytkownika: {{ user.username }}</p>
+    <p>E-mail: {{ user.email }}</p>
+    <p>Imię: {{ user.first_name }}</p>
+    <p>Nazwisko: {{ user.last_name }}</p>
+    <p>Data dołączenia: {{ user.date_joined }}</p>
+</div>
+<footer>
+    <p>Aby uaktualnić swoje dane udaj się do najbliższego oddziału biblioteki.</p>
+</footer>
+{% endblock %}

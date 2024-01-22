@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+    <header>
+        <h2>Strona główna</h2>
+    </header>
+    <p>Odwiedź naszą księgarnię miejską, aby odkryć najnowsze publikacje, klasykę literatury oraz wiele innych ciekawych tytułów.</p>
+    <hr>
+    <div>
+        <p>Zapraszamy do śledzenia naszej sekcji z nowościami. Zawsze mamy coś interesującego do zaoferowania.</p>
+        <ul>
+            {% for book in books %}
+                {% if  book.borrowed == False %}
+                    <li>
+                        <h5><a href="{% url 'books' book.id %}">{{ book.title }}</a> -- DOSTĘPNA</h5>
+                    </li>
+                {% else %}
+                    <li>
+                        <h5><a href="{% url 'books' book.id %}">{{ book.title }}</a> -- NIEDOSTĘPNA</h5>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>        
+    </div>
+
+
+{% endblock %}

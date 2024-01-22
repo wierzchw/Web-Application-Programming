@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if page == 'login' %}
+    <header>
+        <h2>Logowanie do Konta Bibliotecznego</h2>
+    </header>
+
+    <form method="POST", action="">
+        {% csrf_token %}
+
+        <label>Nazwa użytkownika:</label>
+        <input type="text" name="username", placeholder="Podaj nazwe użytkownika" />
+
+        <label>Hasło:</label>
+        <input type="password" name="password", placeholder="Podaj hasło" />
+
+        <input type="submit", value="Zaloguj">
+    </form>
+
+    <p>Nie masz jeszcze konta bibliotecznego?</p>
+    <a href="{% url 'register' %}">Zarejestruj się</a>
+{% endif %}
+
+{% if page == 'register' %}
+    <header>
+        <h2>Rejestracja</h2>
+    </header>
+
+    <form method="POST", action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit", value="Zarejestruj">
+    </form>
+    <p>Masz już swoje konto biblioteczne?</p>
+    <a href="{% url 'login' %}">Zaloguj się</a>
+{% endif %}
+
+{% endblock %}
+
+

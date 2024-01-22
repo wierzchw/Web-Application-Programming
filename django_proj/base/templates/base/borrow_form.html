@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+        <header>
+        <h2>Rezerwacja Książki</h2>
+        </header>
+
+        <p>Witaj, {{ user.username }}! Poniżej możesz zarezerwować książkę do wyporzyczenia:</p>
+
+        <form method="post" action="{% url 'borrow-book' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Rezerwuj">
+        </form>
+{% endblock %}

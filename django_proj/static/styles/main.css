@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: medium;
+    font-weight: 600;
+
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+header {
+    background-color: #006400;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.user-greeting{
+    font-weight: bold;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    max-width: 150px; /* Ustawia maksymalną szerokość logo */
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: #333;
+}
+
+nav {
+    font-weight: bold;
+    background-color: #1e90ff;
+    padding: 10px;
+    opacity: 0.8;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+li {
+    margin: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #fff;
+    color: #1e90ff;
+    cursor: pointer;
+}
+
+.right {
+    margin-left: auto;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: url('/static/images/background2.jpg') center/cover no-repeat fixed;
+}
+
+.content {
+    max-width: 50%;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(57, 167, 231, 0.8);  border-radius: 30px;
+    z-index: 1;
+}
+
+footer {
+    background-color: #006400;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
